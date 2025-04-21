@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マガジンリスト</title>
+    <link rel="stylesheet" href="./magazine.css">
+</head>
+<body>
+    <h1>マガジン一覧</h1>
+<!--リスト表示  -->
+    <ul id="js-magazine-list"></ul>
+<!-- ページャー表示  -->
+    <div id="js-pagination"></div>
+<div>
+    <h2>おまけ</h2>
+    <p>
+        <button  onclick="gotoFirstPage(event)">最初ページ</button> 
+        <button  onclick="gotoLastPage(event)">最終ページ</button>
+    </p>
+</div>
+  
+    <script>
+        // マガジンデータ
+        const magazines = [
+            {date: "2001-01-01", title: "テスト1", path: "test1.pdf"},
+            {date: "2001-02-01", title: "テスト2", path: "test2.pdf"}, 
+            {date: "2001-03-01", title: "テスト3", path: "test3.pdf"},
+            {date: "2001-04-01", title: "テスト4", path: "test4.pdf"},
+            {date: "2001-05-01", title: "テスト5", path: "test5.pdf"},
+            {date: "2001-06-01", title: "テスト6", path: "test6.pdf"},
+            {date: "2001-07-01", title: "テスト7", path: "test7.pdf"},
+            {date: "2001-08-01", title: "テスト8", path: "test8.pdf"},
+            {date: "2001-09-01", title: "テスト9", path: "test9.pdf"},
+            {date: "2001-10-01", title: "テスト10", path: "test10.pdf"},
+            {date: "2001-11-01", title: "テスト11", path: "test11.pdf"},
+            {date: "2001-12-01", title: "テスト12", path: "test12.pdf"},
+            {date: "2002-01-01", title: "テスト13", path: "test13.pdf"},
+            {date: "2002-02-01", title: "テスト14", path: "test14.pdf"},
+            {date: "2002-03-01", title: "テスト15", path: "test15.pdf"},
+            {date: "2002-04-01", title: "テスト16", path: "test16.pdf"},
+            {date: "2002-05-01", title: "テスト17", path: "test17.pdf"},
+            {date: "2002-06-01", title: "テスト18", path: "test18.pdf"},
+            {date: "2002-07-01", title: "テスト19", path: "test19.pdf"},
+            {date: "2002-08-01", title: "テスト20", path: "test20.pdf"},
+            {date: "2002-09-01", title: "テスト21", path: "test21.pdf"},
+        ];
+    </script>
+    <script src="./magazines.js"></script>
+    <script>
+        // magazinesを使用してマガジンリストを作成 必要に応じてパラメータを変更
+      const magazineLists =   new MagazineList(magazines, {
+            itemsPerPage: 10,
+            pdfPath: './images/magazine'
+        });
+        //おまけ
+        const gotoFirstPage = (e) => {
+            e.preventDefault();
+            magazineLists.changePage(0);
+        }
+        const gotoLastPage = (e) => {
+            e.preventDefault();
+            magazineLists.changePage(magazineLists.getLastPage());
+        }
+    </script>
+</body>
+</html>
