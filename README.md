@@ -42,7 +42,7 @@ const magazineLists = new MagazineList(magazines, {
   itemsPerPage: 10, // 1ページあたりの表示件数
   pdfPath: "./images/magazine", // PDFファイルのパス
   listId: "js-magazine-list" //一覧表示用リストID
-  paginationId: "js-pagination" //一覧表示用リストID
+  paginationId: "js-pagination" //ページャー表示用リストID
   listClass: "magazine-item", // リスト項目のクラス名
   linkClass: "link", // リンクのクラス名
   dateClass: "date", // 日付のクラス名
